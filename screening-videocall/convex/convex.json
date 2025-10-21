@@ -1,0 +1,8 @@
+{
+  "project": "screening",
+  "team": "default",
+  "env": {
+    "EMAIL_USER": "string",
+    "EMAIL_PASS": "string"
+  }
+}
