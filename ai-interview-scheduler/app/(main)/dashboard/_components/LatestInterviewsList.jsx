@@ -140,6 +140,10 @@ function LatestInterviewsList() {
     }
   };
 
+  const handleCreateInterview = () => {
+    window.location.href = "https://screening-au2f.vercel.app/dashboard/create-interview";
+  };
+
   return (
     <div className="my-10">
       <h2 className="font-bold text-2xl mb-6 relative inline-block">
@@ -160,7 +164,10 @@ function LatestInterviewsList() {
             You don’t have any Interviews yet
           </h2>
           <motion.div whileHover={{ scale: 1.08 }}>
-            <Button className="rounded-full px-6 bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-md hover:shadow-xl">
+            <Button 
+             className="rounded-full px-6 bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-md hover:shadow-xl"
+             onClick={handleCreateInterview}
+            >
               + Create New Interview
             </Button>
           </motion.div>
