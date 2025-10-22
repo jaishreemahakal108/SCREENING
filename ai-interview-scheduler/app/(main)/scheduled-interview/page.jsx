@@ -80,10 +80,12 @@ import React, { useEffect, useState } from "react";
 import InterviewCard from "../dashboard/_components/InterviewCard";
 import { motion } from "framer-motion";
 import { Video } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 function ScheduledInterview() {
   const { user } = useUser();
   const [interviewList, setInterviewList] = useState([]);
+   const router = useRouter();
 
   useEffect(() => {
     if (user?.email) {
@@ -117,6 +119,14 @@ function ScheduledInterview() {
     setInterviewList(data || []);
   };
 
+  const handleCreateInterview = () => {
+    // Option 1: If both pages are part of the same Next.js app
+    //router.push("/dashboard/create-interview");
+
+    // Option 2: If it's a separate deployed app (as per your link)
+    window.location.href = "https://screening-au2f.vercel.app/dashboard/create-interview";
+  };
+
   return (
     <div className="mt-5">
       {/* Heading with underline */}
@@ -140,7 +150,10 @@ function ScheduledInterview() {
               You don’t have any Interviews yet
             </h2>
             <motion.div whileHover={{ scale: 1.08 }}>
-              <Button className="rounded-full px-6 bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-md hover:shadow-xl">
+              <Button 
+                className="rounded-full px-6 bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-md hover:shadow-xl"
+                onClick={handleCreateInterview} 
+              >
                 + Create New Interview
               </Button>
             </motion.div>
