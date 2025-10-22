@@ -40,7 +40,7 @@ function CreateOptions() {
       icon: <Video className="p-3 bg-gradient-to-r from-indigo-500 to-blue-500 text-white rounded-xl h-12 w-12 cursor-pointer"/>,
       title: "Create Phone Screening Call",
       desc: "Schedule phone screening call with Candidates",
-      link: "http://localhost:3001", 
+      link: process.env.NEXT_PUBLIC_VIDEO_APP_URL, 
       external: true, 
     }
   ];
