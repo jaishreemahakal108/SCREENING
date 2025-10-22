@@ -136,7 +136,7 @@ export default function Home() {
         setShowModal(true)
         break
       case "Dashboard":
-      window.location.href = "http://localhost:3000/dashboard";
+      window.location.href = "https://screening-au2f.vercel.app/dashboard";
       break;
       default:
         router.push(`/${title.toLowerCase()}`)
