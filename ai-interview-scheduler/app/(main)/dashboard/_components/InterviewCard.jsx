@@ -51,9 +51,31 @@ function InterviewCard({ interview , viewDetail=false }) {
     toast('Copied');
   };
 
+  // const onSend = () => {
+  //   window.location.href = `mailto:rajaswa@gmail.com?subject=Interview Link&body=Interview Link: ${url}`;
+  // };
+
   const onSend = () => {
-    window.location.href = `mailto:rajaswa@gmail.com?subject=Interview Link&body=Interview Link: ${url}`;
+    const subject = `Interview Invitation - ${interview?.jobPosition || "Position"}`;
+    const body = `Dear Candidate,
+
+    I hope this message finds you well.
+
+    You have been invited to attend an interview for the position of ${interview?.jobPosition || "the mentioned role"}.
+
+    Please join the interview using the link below:
+    ${url}
+
+    Duration: ${interview?.duration || "Not specified"}
+
+    If you have any questions or scheduling conflicts, feel free to reply to this email.
+
+    Best regards,
+    Rajaswa Anand`;
+
+    window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
+
 
   return (
     <div className="p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-gray-100">
