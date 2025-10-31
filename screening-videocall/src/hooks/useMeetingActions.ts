@@ -64,25 +64,26 @@ const useMeetingActions = () => {
         },
       });
 
-      const meetingLink = `${process.env.NEXT_PUBLIC_HOST_URL}/meeting/${call.id}`;
+      const hostUrl = process.env.NEXT_PUBLIC_HOST_URL || window.location.origin;
+      const meetingLink = `${hostUrl}/meeting/${call.id}`;
 
       if (sendEmail) {
         const subject = `Interview Invitation - Technical Interview`;
         const body = `Dear Candidate,
 
-I hope this message finds you well.
+        I hope this message finds you well.
 
-You have been invited to attend a technical interview.
+        You have been invited to attend a technical interview.
 
-Please join the interview using the link below:
-${meetingLink}
+        Please join the interview using the link below:
+        ${meetingLink}
 
-Duration: 30 minutes
+        Duration: 30 minutes
 
-If you have any questions or scheduling conflicts, feel free to reply to this email.
+        If you have any questions or scheduling conflicts, feel free to reply to this email.
 
-Best regards,
-Rajaswa Anand`;
+        Best regards,
+        Rajaswa Anand`;
 
         // ✅ open default mail client
         window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
